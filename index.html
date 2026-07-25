@@ -266,6 +266,13 @@ map.on('mousemove', e => {
 // Paleta segura para daltonismo (Okabe–Ito, ampliada)
 const PALETA = ['#0072B2','#D55E00','#009E73','#CC79A7','#E69F00','#56B4E9','#8E44AD','#B5651D','#1F9E8C','#C0392B'];
 let iPaleta = 0;
+
+// Colores fijos para capas específicas (por nombre, sin tildes ni mayúsculas)
+const COLOR_FIJO = {
+  'areas verdes': '#2E9E4F',   // verde
+  'lagunas':      '#37D6B4'    // calipso
+};
+const normaliza = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 const capas = [];               // { id, nombre, color, grupo, n, tipos, visible }
 let seq = 0;
 const avisos = [];
@@ -353,8 +360,8 @@ function agregarCapa(ruta, gj, opts){
   const src = detectarProyeccion(gj);
   if(src){ reproyectar(gj, src); avisos.push({ t: 'Reproyectado', m: nombreLimpio(ruta) + ' venía en ' + src + '; se convirtió a coordenadas geográficas.' }); }
 
-  const color = opts.color || PALETA[iPaleta++ % PALETA.length];
   const etiqueta = opts.nombre || nombreLimpio(ruta);
+  const color = opts.color || COLOR_FIJO[normaliza(etiqueta)] || PALETA[iPaleta++ % PALETA.length];
   const id = 'c' + (++seq);
   const tipos = new Set();
 
