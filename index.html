@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visor de accesibilidad · Campus UdeC</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Public+Sans:ital,wght@0,400;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:        #0C1826;
+    --ink-2:      #14283C;
+    --ink-3:      #1E3852;
+    --line:       #2C4A66;
+    --paper:      #EDF2F6;
+    --paper-dim:  #9DB2C4;
+    --gold:       #F2B01E;
+    --brick:      #D9614A;
+    --mint:       #37D6B4;
+    --radius: 3px;
+    --tap: 44px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    font-family:"Public Sans",system-ui,sans-serif;
+    background:var(--ink);color:var(--paper);
+    overflow:hidden;
+  }
+  h1,h2,h3{font-family:"Bricolage Grotesque","Public Sans",sans-serif;font-weight:800;margin:0}
+  .mono{font-family:"DM Mono",ui-monospace,monospace}
+
+  /* ---------- estructura ---------- */
+  #app{display:flex;height:100%;width:100%}
+  #panel{
+    width:340px;flex:0 0 340px;height:100%;
+    background:var(--ink);border-right:1px solid var(--line);
+    display:flex;flex-direction:column;z-index:1000;
+  }
+  #map{flex:1;height:100%;background:var(--ink-2)}
+
+  /* ---------- cabecera ---------- */
+  .brand{padding:18px 18px 14px;border-bottom:1px solid var(--line)}
+  .brand .eyebrow{
+    font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--gold);display:flex;align-items:center;gap:8px;margin-bottom:6px;
+  }
+  .brand .eyebrow::after{content:"";flex:1;height:1px;background:var(--line)}
+  .brand h1{font-size:23px;line-height:1.05;letter-spacing:-.02em}
+  .brand p{margin:7px 0 0;font-size:12.5px;color:var(--paper-dim);line-height:1.45}
+
+  /* ---------- lista de capas ---------- */
+  .stack{flex:1;overflow-y:auto;padding:6px 0 24px}
+  .stack-head{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding:14px 18px 8px;font-size:11px;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--paper-dim);
+  }
+  .stack-head b{font-family:"DM Mono",monospace;color:var(--gold);letter-spacing:0}
+
+  /* ticket de capa: la firma del visor */
+  .ticket{
+    display:grid;grid-template-columns:auto 26px 1fr auto;
+    align-items:center;gap:10px;
+    padding:9px 18px;border-left:3px solid transparent;
+    cursor:default;
+  }
+  .ticket:hover{background:var(--ink-2)}
+  .ticket.off{opacity:.42}
+  .ticket .sw{
+    width:var(--tap);height:26px;min-width:34px;
+    display:flex;align-items:center;justify-content:flex-start;
+    background:none;border:0;padding:0;cursor:pointer;
+  }
+  .switch{
+    width:34px;height:19px;border-radius:10px;background:var(--ink-3);
+    border:1px solid var(--line);position:relative;transition:background .15s;
+  }
+  .ticket:not(.off) .switch{background:var(--layer-color,var(--gold));border-color:transparent}
+  .switch i{
+    position:absolute;top:2px;left:2px;width:13px;height:13px;border-radius:50%;
+    background:var(--paper-dim);transition:transform .15s,background .15s;
+  }
+  .ticket:not(.off) .switch i{transform:translateX(15px);background:#0C1826}
+  .glyph{display:block;width:22px;height:22px;color:var(--layer-color,var(--gold))}
+  .ticket.off .glyph{color:var(--paper-dim)}
+  .meta{min-width:0}
+  .meta .nm{
+    font-size:13.5px;font-weight:600;line-height:1.25;
+    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+  }
+  .meta .sub{font-family:"DM Mono",monospace;font-size:10.5px;color:var(--paper-dim);margin-top:2px}
+
+  .empty{padding:28px 18px;text-align:center;color:var(--paper-dim)}
+  .empty svg{width:46px;height:46px;color:var(--line);margin-bottom:10px}
+  .empty p{font-size:13px;line-height:1.55;margin:0}
+
+  .notes{margin:14px 18px 0;border-top:1px solid var(--line);padding-top:12px}
+  .note{
+    font-size:11.5px;line-height:1.5;color:var(--paper-dim);
+    border-left:2px solid var(--brick);padding:2px 0 2px 9px;margin-bottom:8px;
+  }
+  .note.ok{border-color:var(--mint)}
+  .note b{color:var(--paper);font-weight:600}
+
+  /* ---------- pie del panel ---------- */
+  .foot{
+    border-top:1px solid var(--line);padding:10px 18px;
+    font-family:"DM Mono",monospace;font-size:10.5px;color:var(--paper-dim);
+    display:flex;justify-content:space-between;gap:8px;
+  }
+
+  /* ---------- controles sobre el mapa ---------- */
+  .base-switch{
+    position:absolute;top:12px;right:12px;z-index:900;
+    display:flex;background:rgba(12,24,38,.92);border:1px solid var(--line);
+    border-radius:var(--radius);overflow:hidden;backdrop-filter:blur(6px);
+  }
+  .base-switch button{
+    font-family:inherit;font-size:12px;padding:0 12px;height:34px;
+    background:none;border:0;border-right:1px solid var(--line);
+    color:var(--paper-dim);cursor:pointer;
+  }
+  .base-switch button:last-child{border-right:0}
+  .base-switch button[aria-pressed="true"]{background:var(--gold);color:#20160A;font-weight:600}
+  #panel-toggle{
+    position:absolute;top:12px;left:12px;z-index:900;display:none;
+    height:38px;padding:0 14px;align-items:center;gap:8px;
+    background:rgba(12,24,38,.94);border:1px solid var(--line);border-radius:var(--radius);
+    color:var(--paper);font-family:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  }
+
+
+  /* ---------- Leaflet ---------- */
+  .leaflet-container{background:var(--ink-2);font-family:"Public Sans",sans-serif}
+  .leaflet-control-attribution{font-size:9.5px !important}
+  .leaflet-popup-content-wrapper{
+    background:var(--ink);color:var(--paper);border-radius:var(--radius);
+    border:1px solid var(--line);box-shadow:0 10px 34px rgba(0,0,0,.5);
+  }
+  .leaflet-popup-tip{background:var(--ink);border:1px solid var(--line)}
+  .leaflet-popup-content{margin:0;width:262px !important}
+  .leaflet-popup-close-button{color:var(--paper-dim) !important;padding:6px 8px 0 0 !important}
+  .pop-h{
+    padding:10px 12px;border-bottom:1px solid var(--line);
+    border-top:3px solid var(--pc,var(--gold));
+  }
+  .pop-h span{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--pc,var(--gold))}
+  .pop-h h3{font-size:14.5px;margin-top:3px;line-height:1.2}
+  .pop-t{max-height:220px;overflow-y:auto}
+  .pop-t table{width:100%;border-collapse:collapse;font-size:12px}
+  .pop-t th,.pop-t td{padding:6px 12px;text-align:left;vertical-align:top;border-bottom:1px solid rgba(44,74,102,.5)}
+  .pop-t th{
+    font-family:"DM Mono",monospace;font-weight:400;font-size:10.5px;
+    color:var(--paper-dim);text-transform:uppercase;letter-spacing:.05em;width:42%;
+  }
+  .pop-empty{padding:12px;font-size:12px;color:var(--paper-dim)}
+
+  .rd{
+    position:absolute;bottom:0;right:0;z-index:900;
+    font-family:"DM Mono",monospace;font-size:10.5px;color:var(--paper-dim);
+    background:rgba(12,24,38,.9);padding:4px 9px;border-top-left-radius:var(--radius);
+    border-top:1px solid var(--line);border-left:1px solid var(--line);
+  }
+
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+  @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+
+  @media (max-width:820px){
+    #app{flex-direction:column}
+    #panel{
+      position:absolute;inset:auto 0 0 0;width:100%;flex:none;
+      height:64%;border-right:0;border-top:1px solid var(--line);
+      border-radius:12px 12px 0 0;transform:translateY(calc(100% - 0px));
+      transition:transform .22s ease;
+    }
+    #panel.open{transform:translateY(0)}
+    #map{height:100%}
+    #panel-toggle{display:flex}
+  }
+</style>
+</head>
+<body>
+
+<div id="app">
+  <aside id="panel" class="open">
+    <div class="brand">
+      <div class="eyebrow">Campus Concepción</div>
+      <h1>Visor de accesibilidad UdeC</h1>
+      <p>Elementos y rutas accesibles del campus. Usa los interruptores para mostrar u ocultar cada categoría.</p>
+    </div>
+
+    <div class="stack">
+      <div class="stack-head"><span>Simbología</span><b id="count">0</b></div>
+      <div id="list"></div>
+      <div id="notes" class="notes" hidden></div>
+    </div>
+
+    <div class="foot">
+      <span id="total">Sin datos</span>
+      <span>EPSG:4326</span>
+    </div>
+  </aside>
+
+  <div id="map" role="application" aria-label="Mapa del campus"></div>
+</div>
+
+<button id="panel-toggle" aria-expanded="true">
+  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  Simbología
+</button>
+
+<div class="base-switch" role="group" aria-label="Mapa base">
+  <button data-base="claro" aria-pressed="true">Claro</button>
+  <button data-base="calles" aria-pressed="false">Calles</button>
+  <button data-base="satelital" aria-pressed="false">Satelital</button>
+  <button data-base="contraste" aria-pressed="false">Contraste</button>
+</div>
+
+<div class="rd" id="readout">—</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.9.2/proj4.js"></script>
+<script>
+(function(){
+"use strict";
+
+/* ---------------------------------------------------------------
+   1. Mapa base
+--------------------------------------------------------------- */
+const UDEC = [-36.8297, -73.0362];
+
+const map = L.map('map', { center: UDEC, zoom: 16, zoomControl: false, preferCanvas: true });
+L.control.zoom({ position: 'bottomleft' }).addTo(map);
+L.control.scale({ position: 'bottomleft', imperial: false }).addTo(map);
+
+const OSM_ATTR = '&copy; OpenStreetMap';
+const bases = {
+  claro: L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    { maxZoom: 20, attribution: OSM_ATTR + ' &middot; CARTO' }),
+  calles: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+    { maxZoom: 19, attribution: OSM_ATTR }),
+  satelital: L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+    { maxZoom: 19, attribution: 'Esri, Maxar, Earthstar Geographics' }),
+  contraste: L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
+    { maxZoom: 20, attribution: OSM_ATTR + ' &middot; CARTO' })
+};
+let baseActual = bases.claro.addTo(map);
+
+document.querySelectorAll('.base-switch button').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('.base-switch button').forEach(o => o.setAttribute('aria-pressed', String(o === b)));
+    map.removeLayer(baseActual);
+    baseActual = bases[b.dataset.base].addTo(map);
+  });
+});
+
+map.on('mousemove', e => {
+  document.getElementById('readout').textContent =
+    e.latlng.lat.toFixed(5) + ', ' + e.latlng.lng.toFixed(5);
+});
+
+/* ---------------------------------------------------------------
+   2. Estado y paleta
+--------------------------------------------------------------- */
+// Paleta segura para daltonismo (Okabe–Ito, ampliada)
+const PALETA = ['#0072B2','#D55E00','#009E73','#CC79A7','#E69F00','#56B4E9','#8E44AD','#B5651D','#1F9E8C','#C0392B'];
+let iPaleta = 0;
+const capas = [];               // { id, nombre, color, grupo, n, tipos, visible }
+let seq = 0;
+const avisos = [];
+
+const $list  = document.getElementById('list');
+const $notes = document.getElementById('notes');
+const $count = document.getElementById('count');
+const $total = document.getElementById('total');
+
+/* ---------------------------------------------------------------
+   3. Reproyección: muchos SIG chilenos exportan en UTM 18S
+--------------------------------------------------------------- */
+proj4.defs('EPSG:32718', '+proj=utm +zone=18 +south +datum=WGS84 +units=m +no_defs');
+proj4.defs('EPSG:32719', '+proj=utm +zone=19 +south +datum=WGS84 +units=m +no_defs');
+
+function primeraCoord(g){
+  if(!g) return null;
+  if(g.type === 'GeometryCollection') return primeraCoord(g.geometries && g.geometries[0]);
+  let c = g.coordinates;
+  while(Array.isArray(c) && Array.isArray(c[0])) c = c[0];
+  return Array.isArray(c) ? c : null;
+}
+
+function detectarProyeccion(gj){
+  const f = (gj.features || []).find(x => x && x.geometry);
+  const c = primeraCoord(gj.type === 'FeatureCollection' ? (f && f.geometry) : (gj.geometry || gj));
+  if(!c) return null;
+  if(Math.abs(c[0]) <= 180 && Math.abs(c[1]) <= 90) return null;   // ya está en grados
+  return (c[0] > 500000 && c[0] < 900000) ? 'EPSG:32718' : 'EPSG:32719';
+}
+
+function reproyectar(gj, src){
+  const tr = xy => { const p = proj4(src, 'EPSG:4326', [xy[0], xy[1]]); return [p[0], p[1]]; };
+  const rec = c => (Array.isArray(c[0]) ? c.map(rec) : tr(c));
+  const geo = g => {
+    if(!g) return g;
+    if(g.type === 'GeometryCollection'){ g.geometries.forEach(geo); return g; }
+    if(g.coordinates) g.coordinates = rec(g.coordinates);
+    return g;
+  };
+  (gj.features || [gj]).forEach(f => geo(f.geometry || f));
+  return gj;
+}
+
+/* ---------------------------------------------------------------
+   4. Estilos
+--------------------------------------------------------------- */
+function estiloLinea(color){ return { color, weight: 4, opacity: .95, lineCap: 'round' }; }
+function estiloPoli(color){ return { color, weight: 2, opacity: 1, fillColor: color, fillOpacity: .22 }; }
+function estiloPunto(color){ return { radius: 6, color: '#fff', weight: 2, fillColor: color, fillOpacity: 1 }; }
+
+function esc(v){
+  return String(v).replace(/[&<>"]/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;' }[c]));
+}
+
+function popup(nombre, color, props){
+  let cuerpo = '<div class="pop-empty">Esta geometría no tiene atributos.</div>';
+  const claves = props ? Object.keys(props).filter(k => props[k] !== null && props[k] !== '') : [];
+  if(claves.length){
+    cuerpo = '<div class="pop-t"><table><tbody>' + claves.map(k =>
+      '<tr><th>' + esc(k) + '</th><td>' + esc(props[k]) + '</td></tr>').join('') + '</tbody></table></div>';
+  }
+  const titulo = claves.find(k => /^(nombre|name|titulo|título|label|descripcion|descripción)$/i.test(k));
+  return '<div style="--pc:' + color + '">' +
+    '<div class="pop-h"><span>' + esc(nombre) + '</span>' +
+    (titulo ? '<h3>' + esc(props[titulo]) + '</h3>' : '') + '</div>' + cuerpo + '</div>';
+}
+
+/* ---------------------------------------------------------------
+   5. Alta de capas
+--------------------------------------------------------------- */
+function nombreLimpio(ruta){
+  return ruta.split('/').pop().replace(/\.(geo)?json$/i, '').replace(/[_-]+/g, ' ').trim();
+}
+
+function agregarCapa(ruta, gj, opts){
+  opts = opts || {};
+  // normaliza a FeatureCollection
+  if(gj.type === 'Feature') gj = { type: 'FeatureCollection', features: [gj] };
+  else if(gj.type && /^(Point|LineString|Polygon|Multi|GeometryCollection)/.test(gj.type))
+    gj = { type: 'FeatureCollection', features: [{ type: 'Feature', properties: {}, geometry: gj }] };
+  if(gj.type !== 'FeatureCollection' || !Array.isArray(gj.features))
+    throw new Error('no es un GeoJSON válido');
+
+  const src = detectarProyeccion(gj);
+  if(src){ reproyectar(gj, src); avisos.push({ t: 'Reproyectado', m: nombreLimpio(ruta) + ' venía en ' + src + '; se convirtió a coordenadas geográficas.' }); }
+
+  const color = opts.color || PALETA[iPaleta++ % PALETA.length];
+  const etiqueta = opts.nombre || nombreLimpio(ruta);
+  const id = 'c' + (++seq);
+  const tipos = new Set();
+
+  const grupo = L.geoJSON(gj, {
+    style: f => {
+      const t = f.geometry ? f.geometry.type : '';
+      return /Polygon/.test(t) ? estiloPoli(color) : estiloLinea(color);
+    },
+    pointToLayer: (f, ll) => L.circleMarker(ll, estiloPunto(color)),
+    onEachFeature: (f, lyr) => {
+      if(f.geometry) tipos.add(f.geometry.type.replace('Multi', ''));
+      lyr.bindPopup(() => popup(etiqueta, color, f.properties), { maxWidth: 280 });
+      if(lyr.setStyle){
+        lyr.on('mouseover', () => lyr.setStyle({ weight: 6 }));
+        lyr.on('mouseout',  () => lyr.setStyle({ weight: /Polygon/.test(f.geometry.type) ? 2 : 4 }));
+      }
+    }
+  }).addTo(map);
+
+  capas.push({ id, nombre: etiqueta, archivo: ruta, color, grupo,
+               n: gj.features.length, tipos: [...tipos], visible: true });
+  return capas[capas.length - 1];
+}
+
+/* ---------------------------------------------------------------
+   6. Lectura de archivos
+--------------------------------------------------------------- */
+const esGeo = n => /\.(geojson|json)$/i.test(n);
+
+/* ---------------------------------------------------------------
+   6b. Carga automática de la carpeta GEOJSON/
+   Estrategia 1: GEOJSON/capas.json (lista explícita, opcional)
+   Estrategia 2: índice de directorio del servidor (python -m http.server, nginx…)
+--------------------------------------------------------------- */
+const CARPETA = 'GEOJSON';
+const MANIFIESTO = 'capas.json';
+
+// Solo si se publica en GitHub Pages. Vacío = se deduce de la URL.
+const GITHUB = { usuario: '', repo: '', rama: 'main' };
+
+async function traer(url){
+  const r = await fetch(url, { cache: 'no-store' });
+  if(!r.ok) throw new Error('HTTP ' + r.status);
+  return r;
+}
+
+// Lista explícita: ["rampas.geojson", {"archivo":"ascensores.geojson","nombre":"Ascensores","color":"#D55E00"}]
+async function porManifiesto(){
+  let j;
+  try{ j = await (await traer(CARPETA + '/' + MANIFIESTO)).json(); }
+  catch(e){ return null; }
+  const arr = Array.isArray(j) ? j : (j.capas || []);
+  return arr
+    .map(x => (typeof x === 'string' ? { archivo: x } : x))
+    .filter(x => x && x.archivo)
+    .map(x => Object.assign({}, x, {
+      archivo: /^GEOJSON\//i.test(x.archivo) ? x.archivo : CARPETA + '/' + x.archivo
+    }));
+}
+
+// GitHub Pages no tiene índice de directorio: se consulta la API del repositorio
+function repoGitHub(){
+  if(GITHUB.usuario && GITHUB.repo) return GITHUB;
+  const m = /^([^.]+)\.github\.io$/i.exec(location.hostname);
+  if(!m) return null;
+  const seg = location.pathname.split('/').filter(Boolean);
+  const repo = (seg.length && !esGeo(seg[0]) && !/\.html?$/i.test(seg[0]))
+    ? seg[0] : (m[1] + '.github.io');
+  return { usuario: m[1], repo, rama: GITHUB.rama || 'main' };
+}
+
+async function porGitHub(){
+  const g = repoGitHub();
+  if(!g) return null;
+  const base = 'https://api.github.com/repos/' + g.usuario + '/' + g.repo + '/contents/';
+  const recorrerDir = async (ruta, prof) => {
+    if(prof > 3) return [];
+    const items = await (await traer(base + encodeURI(ruta) + '?ref=' + encodeURIComponent(g.rama))).json();
+    if(!Array.isArray(items)) return [];
+    const out = [];
+    for(const it of items){
+      if(it.type === 'dir') out.push(...await recorrerDir(it.path, prof + 1));
+      else if(esGeo(it.name) && it.name.toLowerCase() !== MANIFIESTO)
+        out.push({ archivo: it.path.split('/').map(encodeURIComponent).join('/'), nombre: nombreLimpio(it.name) });
+    }
+    return out;
+  };
+  return await recorrerDir(CARPETA, 0);
+}
+
+// Índice de directorio: se leen los enlaces del HTML que devuelve el servidor
+async function porIndice(dir, prof){
+  prof = prof || 0;
+  if(prof > 3) return [];
+  const html = await (await traer(dir + '/')).text();
+  const doc = new DOMParser().parseFromString(html, 'text/html');
+  const salida = [];
+  for(const a of doc.querySelectorAll('a[href]')){
+    const h = a.getAttribute('href');
+    if(!h || /^[a-z]+:/i.test(h) || h[0] === '/' || h[0] === '#' || h[0] === '?' || h.indexOf('..') === 0) continue;
+    const cruda = h.split('?')[0].replace(/\/$/, '');           // para armar la URL
+    let visible;                                                 // para mostrar en el panel
+    try{ visible = decodeURIComponent(cruda); }catch(e){ visible = cruda; }
+    if(!cruda || visible === '.') continue;
+    if(h.slice(-1) === '/'){
+      try{ salida.push(...await porIndice(dir + '/' + cruda, prof + 1)); }catch(e){}
+    }else if(esGeo(visible) && visible.toLowerCase() !== MANIFIESTO){
+      salida.push({ archivo: dir + '/' + cruda, nombre: nombreLimpio(visible) });
+    }
+  }
+  return salida;
+}
+
+async function cargarCarpeta(){
+  if(location.protocol === 'file:'){
+    avisos.push({ t: 'Sirve la página por HTTP', m: 'Abierta como archivo local, el navegador no permite leer GEOJSON/. Ejecuta un servidor en esta carpeta, por ejemplo: python -m http.server 8000' });
+    return pintar();
+  }
+  const fuentes = [
+    { via: MANIFIESTO,            fn: porManifiesto },
+    { via: 'API de GitHub',       fn: porGitHub },
+    { via: 'índice del servidor', fn: () => porIndice(CARPETA) }
+  ];
+  let lista = null, via = '', fallas = [];
+  for(const f of fuentes){
+    try{
+      const r = await f.fn();
+      if(r && r.length){ lista = r; via = f.via; break; }
+    }catch(err){ fallas.push(f.via + ' (' + err.message + ')'); }
+  }
+  if(!lista){
+    avisos.push({ t: 'No encontré capas', m: 'No se pudo listar ' + CARPETA + '/. Intentos: ' + (fallas.join(', ') || 'sin resultados') + '. La vía más confiable es agregar ' + MANIFIESTO + ' dentro de la carpeta.' });
+    return pintar();
+  }
+
+  lista.sort((a, b) => (a.nombre || a.archivo).localeCompare(b.nombre || b.archivo, 'es', { numeric: true }));
+  const nuevas = [];
+  for(const item of lista){
+    try{
+      const gj = await (await traer(item.archivo)).json();
+      nuevas.push(agregarCapa(item.archivo, gj, item));
+    }catch(err){
+      avisos.push({ t: item.archivo.split('/').pop(), m: 'No se pudo cargar: ' + err.message + '.' });
+    }
+  }
+  console.info('Visor UdeC · ' + nuevas.length + ' capas cargadas (origen: ' + via + ')');
+  pintar();
+  if(nuevas.length) encuadrar(nuevas);
+}
+
+
+/* ---------------------------------------------------------------
+   7. Interfaz
+--------------------------------------------------------------- */
+const GLIFOS = {
+  Point:      '<circle cx="11" cy="11" r="5" fill="currentColor"/>',
+  LineString: '<path d="M3 17 L8 8 L14 14 L19 5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>',
+  Polygon:    '<path d="M4 8 L12 3 L19 9 L15 18 L6 16 Z" fill="currentColor" fill-opacity=".28" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>'
+};
+const glifo = tipos => {
+  const t = tipos.includes('Polygon') ? 'Polygon' : tipos.includes('LineString') ? 'LineString' : 'Point';
+  return '<svg class="glyph" viewBox="0 0 22 22" aria-hidden="true">' + GLIFOS[t] + '</svg>';
+};
+const ETQ = { Point: 'puntos', LineString: 'líneas', Polygon: 'polígonos' };
+
+function pintar(){
+  $count.textContent = String(capas.length);
+  const totalF = capas.reduce((s, c) => s + c.n, 0);
+  $total.textContent = capas.length ? totalF + ' geometrías' : 'Sin datos';
+
+  if(!capas.length){
+    $list.innerHTML = '<div class="empty">' +
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2v16"/></svg>' +
+      '<p>Sin capas para mostrar.</p></div>';
+  }else{
+    $list.innerHTML = capas.map(c => {
+      const tipos = c.tipos.map(t => ETQ[t] || t).join(' + ') || 'sin geometría';
+      return '<div class="ticket' + (c.visible ? '' : ' off') + '" style="--layer-color:' + c.color + '" data-id="' + c.id + '">' +
+        '<button class="sw" data-act="toggle" role="switch" aria-checked="' + c.visible + '" aria-label="Mostrar ' + esc(c.nombre) + '"><span class="switch"><i></i></span></button>' +
+        glifo(c.tipos) +
+        '<div class="meta"><div class="nm">' + esc(c.nombre) + '</div>' +
+        '<div class="sub">' + c.n + ' · ' + tipos + '</div></div>' +
+        '</div>';
+    }).join('');
+  }
+
+  const visibles = avisos.filter(a => !a.ok);
+  $notes.hidden = !visibles.length;
+  $notes.innerHTML = visibles.slice(-3).map(a =>
+    '<div class="note"><b>' + esc(a.t) + '</b> · ' + esc(a.m) + '</div>').join('');
+}
+
+$list.addEventListener('click', e => {
+  const btn = e.target.closest('[data-act]'); if(!btn) return;
+  const c = capas.find(x => x.id === btn.closest('.ticket').dataset.id); if(!c) return;
+  c.visible = !c.visible;
+  c.visible ? c.grupo.addTo(map) : map.removeLayer(c.grupo);
+  pintar();
+});
+
+function encuadrar(cs){
+  const b = L.latLngBounds([]);
+  (cs || capas).forEach(c => { const cb = c.grupo.getBounds(); if(cb.isValid()) b.extend(cb); });
+  if(b.isValid()) map.fitBounds(b, { padding: [40, 40], maxZoom: 19 });
+}
+
+const $panel = document.getElementById('panel'), $tog = document.getElementById('panel-toggle');
+$tog.onclick = () => {
+  const abierto = $panel.classList.toggle('open');
+  $tog.setAttribute('aria-expanded', String(abierto));
+};
+
+pintar();
+cargarCarpeta();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,969 @@
+{
+  "type": "FeatureCollection",
+  "name": "udec",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0379745,
+          -36.8268965
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0385777,
+          -36.8271969
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0368916,
+          -36.8267857
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0374825,
+          -36.8271069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0393163,
+          -36.8271183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0376136,
+          -36.8278876
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0374393,
+          -36.8280313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0379409,
+          -36.8280442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0384398,
+          -36.8284972
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0378658,
+          -36.8286796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0363798,
+          -36.8287313
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0365917,
+          -36.8289652
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0360901,
+          -36.8289845
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0354471,
+          -36.8281394
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0356162,
+          -36.8282874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0352047,
+          -36.8282976
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0350229,
+          -36.8280093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0344615,
+          -36.827994
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0339196,
+          -36.8281624
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0337754,
+          -36.8277012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0332065,
+          -36.8281685
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0346677,
+          -36.8273132
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0336167,
+          -36.8269956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0371845,
+          -36.829725
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.037104,
+          -36.8298323
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0368626,
+          -36.8299481
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0363154,
+          -36.8295576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0367124,
+          -36.8302743
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0367714,
+          -36.8307635
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0359376,
+          -36.8313534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0361841,
+          -36.8313989
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0366886,
+          -36.8316872
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0360172,
+          -36.8317388
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0356683,
+          -36.8317449
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0353876,
+          -36.8319057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0352055,
+          -36.8318146
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0342121,
+          -36.8318079
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0343114,
+          -36.8319956
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0340046,
+          -36.8318801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0335986,
+          -36.8317358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0332973,
+          -36.8322804
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0335397,
+          -36.8323008
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.033444,
+          -36.8324539
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0328667,
+          -36.8321401
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0331569,
+          -36.8320916
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0335556,
+          -36.8327322
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0325972,
+          -36.8318734
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0326784,
+          -36.8327416
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0324393,
+          -36.8330161
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0325769,
+          -36.8330937
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0320694,
+          -36.8333264
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.032004,
+          -36.8334293
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0329874,
+          -36.8335339
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0331611,
+          -36.8334527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0305095,
+          -36.8337048
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0308167,
+          -36.8342554
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0315876,
+          -36.8350527
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.031964,
+          -36.8354379
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.031964,
+          -36.8350118
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0323212,
+          -36.8347796
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0333847,
+          -36.8333358
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0336996,
+          -36.8335694
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0336389,
+          -36.8333206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Bicicleteros",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0337527,
+          -36.8331386
+        ]
+      }
+    },
+{ "type": "Feature", "properties": { "capa": null, "nombre": null, "observaciones": null }, "geometry": { "type": "Point", "coordinates": [ -73.036862895943358, -36.825166833091487 ] } },
+{ "type": "Feature", "properties": { "capa": null, "nombre": null, "observaciones": null }, "geometry": { "type": "Point", "coordinates": [ -73.036945924429702, -36.826812682233445 ] } },
+{ "type": "Feature", "properties": { "capa": null, "nombre": null, "observaciones": null }, "geometry": { "type": "Point", "coordinates": [ -73.035997343392864, -36.827144719149985 ] } }
+]
+}
