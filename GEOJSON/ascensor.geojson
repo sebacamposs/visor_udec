@@ -1,0 +1,486 @@
+{
+  "type": "FeatureCollection",
+  "name": "udec",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0385742,
+          -36.8261801
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0366074,
+          -36.8253357
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.038096,
+          -36.8268441
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0386193,
+          -36.8270534
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0374194,
+          -36.8270823
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0381862,
+          -36.8281275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0373021,
+          -36.8280625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0361473,
+          -36.8271242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.03769,
+          -36.828915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0382314,
+          -36.8288645
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0386193,
+          -36.8286696
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.037398,
+          -36.8302821
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0373653,
+          -36.8297396
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0367553,
+          -36.8315112
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0366105,
+          -36.8316699
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0354481,
+          -36.8316529
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0359533,
+          -36.8317575
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0352586,
+          -36.8282165
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0337489,
+          -36.8279252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.034133,
+          -36.8298188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0344456,
+          -36.8304158
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0360204,
+          -36.8298924
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0349495,
+          -36.8322035
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0326657,
+          -36.831193
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0341904,
+          -36.8326168
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0334249,
+          -36.8324688
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0330931,
+          -36.8323004
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0325573,
+          -36.8329689
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0336737,
+          -36.8332343
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0321937,
+          -36.8335056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0306309,
+          -36.8340275
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Ascensor",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0324061,
+          -36.8348286
+        ]
+      }
+    }
+  ]
+}

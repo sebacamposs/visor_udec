@@ -1,0 +1,846 @@
+{
+  "type": "FeatureCollection",
+  "name": "udec",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0384749,
+          -36.8261152
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0380148,
+          -36.8261585
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0366525,
+          -36.8265482
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0364901,
+          -36.8253068
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0385291,
+          -36.8270679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0393386,
+          -36.827537
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0373099,
+          -36.8271186
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0381321,
+          -36.8280855
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0386734,
+          -36.8285907
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0383306,
+          -36.8288361
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0376089,
+          -36.8288794
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0371036,
+          -36.8281721
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.034361,
+          -36.8271603
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0339099,
+          -36.8269799
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0371823,
+          -36.8286551
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0377437,
+          -36.8294614
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0384136,
+          -36.8297421
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0387325,
+          -36.8298442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0372334,
+          -36.8297472
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0361234,
+          -36.829492
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0373202,
+          -36.8303528
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0367337,
+          -36.8302121
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0369728,
+          -36.8305838
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0352104,
+          -36.8281625
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0377803,
+          -36.8307648
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0380148,
+          -36.8308298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0384975,
+          -36.8305736
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0368149,
+          -36.8314576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0365353,
+          -36.8317499
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0392598,
+          -36.8308654
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0360596,
+          -36.8318307
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0364041,
+          -36.8324025
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0339607,
+          -36.8277106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0343945,
+          -36.8282056
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0333356,
+          -36.8279249
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0342989,
+          -36.8288997
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0341968,
+          -36.8298188
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0339735,
+          -36.8314532
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0337949,
+          -36.8317084
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0350197,
+          -36.832183
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0329018,
+          -36.8312338
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0348092,
+          -36.8328465
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0343882,
+          -36.832673
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0337757,
+          -36.8324841
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0329783,
+          -36.8320963
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0329719,
+          -36.8323106
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0338204,
+          -36.8332088
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0327678,
+          -36.8326934
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0323627,
+          -36.8338442
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0325792,
+          -36.8332777
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0332103,
+          -36.8343006
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0307364,
+          -36.8341221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0330056,
+          -36.8348172
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0322009,
+          -36.8348086
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0319595,
+          -36.8353665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Baño PCD",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0324123,
+          -36.8355078
+        ]
+      }
+    }
+  ]
+}

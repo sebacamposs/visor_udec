@@ -1,0 +1,126 @@
+{
+  "type": "FeatureCollection",
+  "name": "udec",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0383003,
+          -36.827196
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0382211,
+          -36.8284754
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.03736,
+          -36.8283692
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0355054,
+          -36.8276861
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0352694,
+          -36.8280638
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0365353,
+          -36.8293749
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0348166,
+          -36.8315089
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "capa": "Basureros de reciclaje",
+        "nombre": "",
+        "observaciones": ""
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.0356015,
+          -36.8317687
+        ]
+      }
+    }
+  ]
+}

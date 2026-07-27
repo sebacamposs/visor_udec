@@ -17,6 +17,7 @@
     --gold:       #F2B01E;
     --brick:      #D9614A;
     --mint:       #37D6B4;
+    --gris-atenuado: #4C6178;
     --radius: 3px;
     --tap: 44px;
   }
@@ -84,12 +85,32 @@
   .ticket:not(.off) .switch i{transform:translateX(15px);background:#0C1826}
   .glyph{display:block;width:22px;height:22px;color:var(--layer-color,var(--gold))}
   .ticket.off .glyph{color:var(--paper-dim)}
-  .meta{min-width:0}
+  .meta{min-width:0;border-radius:2px}
+  .meta.clicable{cursor:pointer}
   .meta .nm{
     font-size:13.5px;font-weight:600;line-height:1.25;
     overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
   }
   .meta .sub{font-family:"DM Mono",monospace;font-size:10.5px;color:var(--paper-dim);margin-top:2px}
+
+  /* resaltar una capa: el resto pasa a tono gris */
+  .ticket.sel{background:var(--ink-2);border-left-color:var(--layer-color,var(--gold))}
+  .ticket.sel .meta .nm{color:var(--paper)}
+  .stack.hay-sel .ticket:not(.sel):not(.off) .glyph{color:var(--gris-atenuado)}
+  .stack.hay-sel .ticket:not(.sel):not(.off) .meta .nm{color:var(--paper-dim)}
+  .stack.hay-sel .ticket:not(.sel):not(.off) .switch{background:var(--gris-atenuado) !important}
+
+  /* icono estilo "pin" (idéntico al editor) para las capas prioritarias */
+  .pin-mini{
+    display:grid;place-items:center;width:20px;height:20px;border-radius:50% 50% 50% 2px;
+    transform:rotate(-45deg);background:var(--layer-color,var(--gold));
+    border:2px solid var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.4);
+  }
+  .pin-mini svg{width:11px;height:11px;transform:rotate(45deg);color:#fff}
+  .ticket.off .pin-mini{background:var(--gris-atenuado)}
+  .pin{display:block;width:26px;height:26px;border-radius:50% 50% 50% 2px;transform:rotate(-45deg);
+    background:var(--c);border:2px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.5);display:grid;place-items:center}
+  .pin svg{width:15px;height:15px;transform:rotate(45deg);color:#fff}
 
   .empty{padding:28px 18px;text-align:center;color:var(--paper-dim)}
   .empty svg{width:46px;height:46px;color:var(--line);margin-bottom:10px}
@@ -170,11 +191,13 @@
     #app{flex-direction:column}
     #panel{
       position:absolute;inset:auto 0 0 0;width:100%;flex:none;
-      height:64%;border-right:0;border-top:1px solid var(--line);
+      height:42vh;max-height:360px;border-right:0;border-top:1px solid var(--line);
       border-radius:12px 12px 0 0;transform:translateY(calc(100% - 0px));
-      transition:transform .22s ease;
+      transition:transform .22s ease;box-shadow:0 -8px 26px rgba(0,0,0,.35);
     }
     #panel.open{transform:translateY(0)}
+    #panel .brand{padding:12px 16px 10px}
+    #panel .brand p{display:none}
     #map{height:100%}
     #panel-toggle{display:flex}
   }
@@ -183,7 +206,7 @@
 <body>
 
 <div id="app">
-  <aside id="panel" class="open">
+  <aside id="panel">
     <div class="brand">
       <div class="eyebrow">Campus Concepción</div>
       <h1>Visor de accesibilidad UdeC</h1>
@@ -205,7 +228,7 @@
   <div id="map" role="application" aria-label="Mapa del campus"></div>
 </div>
 
-<button id="panel-toggle" aria-expanded="true">
+<button id="panel-toggle" aria-expanded="false">
   <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
   Simbología
 </button>
@@ -276,6 +299,24 @@ const normaliza = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, ''
 const capas = [];               // { id, nombre, color, grupo, n, tipos, visible }
 let seq = 0;
 const avisos = [];
+let seleccionada = null;        // capa resaltada individualmente (resto en gris)
+
+/* Capas que deben mostrarse arriba de la lista con el mismo ícono "pin" del editor */
+const G_PIN = {
+  ascensor:'<rect x="5" y="3" width="14" height="18" rx="2"/><path d="M12 7.5 9.8 11h4.4zM12 16.5 9.8 13h4.4"/>',
+  pcd:      '<circle cx="9.5" cy="4.5" r="2.2"/><path d="M9.5 7v6.5h5l3 6.5"/><circle cx="10.5" cy="15.5" r="5.2"/>',
+  basura:   '<path d="M4 7h16M9.5 7V4h5v3M6 7l1 13.5h10L18 7"/><path d="M10 11l2 5.5 2-5.5"/>'
+};
+const glifoPin = k => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + G_PIN[k] + '</svg>';
+
+function tipoPin(nombre){
+  const n = normaliza(nombre);
+  if(n.includes('ascensor')) return 'ascensor';
+  if(n.includes('pcd')) return 'pcd';
+  if(n.includes('reciclaje') || n.includes('basurero')) return 'basura';
+  return null;
+}
+const ORDEN_PIN = { ascensor: 0, pcd: 1, basura: 2 };
 
 const $list  = document.getElementById('list');
 const $notes = document.getElementById('notes');
@@ -364,13 +405,23 @@ function agregarCapa(ruta, gj, opts){
   const color = opts.color || COLOR_FIJO[normaliza(etiqueta)] || PALETA[iPaleta++ % PALETA.length];
   const id = 'c' + (++seq);
   const tipos = new Set();
+  const pin = tipoPin(etiqueta);
+
+  function iconoPin(col){
+    return L.divIcon({
+      className: '', iconSize: [26, 26], iconAnchor: [13, 26], popupAnchor: [0, -24],
+      html: '<span class="pin" style="--c:' + col + '">' + glifoPin(pin) + '</span>'
+    });
+  }
 
   const grupo = L.geoJSON(gj, {
     style: f => {
       const t = f.geometry ? f.geometry.type : '';
       return /Polygon/.test(t) ? estiloPoli(color) : estiloLinea(color);
     },
-    pointToLayer: (f, ll) => L.circleMarker(ll, estiloPunto(color)),
+    pointToLayer: (f, ll) => pin
+      ? L.marker(ll, { icon: iconoPin(color) })
+      : L.circleMarker(ll, estiloPunto(color)),
     onEachFeature: (f, lyr) => {
       if(f.geometry) tipos.add(f.geometry.type.replace('Multi', ''));
       lyr.bindPopup(() => popup(etiqueta, color, f.properties), { maxWidth: 280 });
@@ -381,9 +432,31 @@ function agregarCapa(ruta, gj, opts){
     }
   }).addTo(map);
 
-  capas.push({ id, nombre: etiqueta, archivo: ruta, color, grupo,
-               n: gj.features.length, tipos: [...tipos], visible: true });
+  capas.push({ id, nombre: etiqueta, archivo: ruta, color, colorActual: color, grupo,
+               n: gj.features.length, tipos: [...tipos], visible: true, pin, iconoPin });
   return capas[capas.length - 1];
+}
+
+/* Repinta una capa con un color dado (usado para el resaltado individual) */
+function coloreaCapa(capa, color){
+  capa.colorActual = color;
+  capa.grupo.eachLayer(lyr => {
+    if(capa.pin && lyr._icon){
+      const span = lyr._icon.querySelector('.pin');
+      if(span) span.style.setProperty('--c', color);
+    }else if(lyr.setStyle){
+      const t = lyr.feature && lyr.feature.geometry ? lyr.feature.geometry.type : '';
+      if(/Polygon/.test(t)) lyr.setStyle(estiloPoli(color));
+      else if(/LineString/.test(t)) lyr.setStyle(estiloLinea(color));
+      else lyr.setStyle(estiloPunto(color));
+    }
+  });
+}
+
+const GRIS_ATENUADO = '#4C6178';
+function aplicarSeleccion(){
+  capas.forEach(c => coloreaCapa(c, (seleccionada && c !== seleccionada) ? GRIS_ATENUADO : c.color));
+  pintar();
 }
 
 /* ---------------------------------------------------------------
@@ -527,22 +600,35 @@ const glifo = tipos => {
 };
 const ETQ = { Point: 'puntos', LineString: 'líneas', Polygon: 'polígonos' };
 
+function ordenParaMostrar(){
+  return capas.slice().sort((a, b) => {
+    const ra = a.pin != null ? ORDEN_PIN[a.pin] : 10 + capas.indexOf(a);
+    const rb = b.pin != null ? ORDEN_PIN[b.pin] : 10 + capas.indexOf(b);
+    return ra - rb;
+  });
+}
+
 function pintar(){
   $count.textContent = String(capas.length);
   const totalF = capas.reduce((s, c) => s + c.n, 0);
   $total.textContent = capas.length ? totalF + ' geometrías' : 'Sin datos';
+  $list.classList.toggle('hay-sel', !!seleccionada);
 
   if(!capas.length){
     $list.innerHTML = '<div class="empty">' +
       '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3 3 5v16l6-2 6 2 6-2V3l-6 2-6-2v16"/></svg>' +
       '<p>Sin capas para mostrar.</p></div>';
   }else{
-    $list.innerHTML = capas.map(c => {
+    $list.innerHTML = ordenParaMostrar().map(c => {
       const tipos = c.tipos.map(t => ETQ[t] || t).join(' + ') || 'sin geometría';
-      return '<div class="ticket' + (c.visible ? '' : ' off') + '" style="--layer-color:' + c.color + '" data-id="' + c.id + '">' +
+      const icono = c.pin
+        ? '<span class="pin-mini">' + glifoPin(c.pin) + '</span>'
+        : glifo(c.tipos);
+      return '<div class="ticket' + (c.visible ? '' : ' off') + (c === seleccionada ? ' sel' : '') +
+        '" style="--layer-color:' + c.colorActual + '" data-id="' + c.id + '">' +
         '<button class="sw" data-act="toggle" role="switch" aria-checked="' + c.visible + '" aria-label="Mostrar ' + esc(c.nombre) + '"><span class="switch"><i></i></span></button>' +
-        glifo(c.tipos) +
-        '<div class="meta"><div class="nm">' + esc(c.nombre) + '</div>' +
+        icono +
+        '<div class="meta' + (c.pin ? ' clicable" data-act="seleccionar" title="Resaltar solo esta capa' : '') + '"><div class="nm">' + esc(c.nombre) + '</div>' +
         '<div class="sub">' + c.n + ' · ' + tipos + '</div></div>' +
         '</div>';
     }).join('');
@@ -557,9 +643,15 @@ function pintar(){
 $list.addEventListener('click', e => {
   const btn = e.target.closest('[data-act]'); if(!btn) return;
   const c = capas.find(x => x.id === btn.closest('.ticket').dataset.id); if(!c) return;
-  c.visible = !c.visible;
-  c.visible ? c.grupo.addTo(map) : map.removeLayer(c.grupo);
-  pintar();
+  if(btn.dataset.act === 'toggle'){
+    c.visible = !c.visible;
+    c.visible ? c.grupo.addTo(map) : map.removeLayer(c.grupo);
+    if(!c.visible && seleccionada === c){ seleccionada = null; aplicarSeleccion(); return; }
+    pintar();
+  }else if(btn.dataset.act === 'seleccionar'){
+    seleccionada = (seleccionada === c) ? null : c;
+    aplicarSeleccion();
+  }
 });
 
 function encuadrar(cs){
