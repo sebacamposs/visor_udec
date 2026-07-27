@@ -259,6 +259,10 @@ const COLOR_FIJO = {
   'areas verdes': '#2E9E4F',   // verde
   'lagunas':      '#37D6B4'    // calipso
 };
+// Nombres de despliegue distintos al nombre del archivo (por nombre, sin tildes ni mayúsculas)
+const NOMBRE_FIJO = {
+  'bano pcd': 'Baño para discapacitados'
+};
 const normaliza = s => String(s).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().trim();
 const capas = [];               // { id, nombre, color, grupo, n, tipos, visible }
 let seq = 0;
@@ -365,11 +369,12 @@ function agregarCapa(ruta, gj, opts){
   const src = detectarProyeccion(gj);
   if(src){ reproyectar(gj, src); avisos.push({ t: 'Reproyectado', m: nombreLimpio(ruta) + ' venía en ' + src + '; se convirtió a coordenadas geográficas.' }); }
 
-  const etiqueta = opts.nombre || nombreLimpio(ruta);
+  let etiqueta = opts.nombre || nombreLimpio(ruta);
   const color = opts.color || COLOR_FIJO[normaliza(etiqueta)] || PALETA[iPaleta++ % PALETA.length];
   const id = 'c' + (++seq);
   const tipos = new Set();
   const pin = tipoPin(etiqueta);
+  etiqueta = NOMBRE_FIJO[normaliza(etiqueta)] || etiqueta;
 
   function iconoPin(col){
     return L.divIcon({
