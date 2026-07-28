@@ -268,7 +268,7 @@ h1, h2, h3 {
   width: 100%;
   height: 100vh;
   height: 100dvh;
-  min-height: 100vh;
+  min-height: 100dvh;
   overflow: hidden;
   --sheet-visible-height: 0px;
 }
@@ -1531,6 +1531,12 @@ window.VISOR_CONFIG = {
   document.addEventListener("pointercancel", endDetailDrag);
   window.addEventListener("resize", handleSheetResize);
   window.addEventListener("resize", handleDetailResize);
+  if (window.visualViewport) {
+    // En iOS Safari, mostrar u ocultar la barra de herramientas no siempre
+    // dispara "resize" en window, pero sí actualiza visualViewport.
+    window.visualViewport.addEventListener("resize", handleSheetResize);
+    window.visualViewport.addEventListener("resize", handleDetailResize);
+  }
   document.addEventListener("keydown", handleGlobalKeydown);
 
   elements.locateButton.addEventListener("click", () => {
