@@ -1210,7 +1210,9 @@ window.VISOR_CONFIG = {
     watchPosition: true,
     // Ubicación de demostración para revisar el prototipo cuando file://
     // o los permisos del navegador impidan acceder al GPS real.
-    demoFallback: true,
+    // Desactivada: si el GPS falla, se muestra un aviso de error en vez de
+    // simular una ubicación de prueba.
+    demoFallback: false,
     demoCoordinates: [-36.82955, -73.03605]
   },
 
